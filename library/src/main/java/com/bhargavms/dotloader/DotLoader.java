@@ -183,6 +183,16 @@ public class DotLoader extends View {
         });
     }
 
+    @Override
+    public void setVisibility(int visibility) {
+        if (visibility == View.VISIBLE){
+            _startAnimation();
+        } else {
+            _stopAnimations();
+        }
+        super.setVisibility(visibility);
+    }
+
     private void _startAnimation() {
         initAnimation();
         for (Dot mDot : mDots) {
