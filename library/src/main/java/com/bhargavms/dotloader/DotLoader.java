@@ -126,8 +126,12 @@ public class DotLoader extends View {
 
     private void _stopAnimations() {
         for (Dot dot : mDots) {
-            dot.positionAnimator.end();
-            dot.colorAnimator.end();
+            if (dot.positionAnimator != null) {
+                dot.positionAnimator.end();
+            }
+            if (dot.colorAnimator != null) {
+                dot.colorAnimator.end();
+            }
         }
     }
 
@@ -196,7 +200,9 @@ public class DotLoader extends View {
     private void _startAnimation() {
         initAnimation();
         for (Dot mDot : mDots) {
-            mDot.positionAnimator.start();
+            if (mDot.positionAnimator != null) {
+                mDot.positionAnimator.start();
+            }
         }
     }
 
